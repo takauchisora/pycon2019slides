@@ -32,8 +32,9 @@ Indices and tables
    extnstructure
    gotchas
    errorhandling
-..
    bonus
+   references
+
 
 
 

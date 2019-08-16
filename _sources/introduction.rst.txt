@@ -21,4 +21,3 @@ Code and Content from this talk can be found at:
 Github: https://github.com/takauchisora/pycon2019talk 
 
 
-

@@ -43,6 +43,15 @@
 <li><p>The structure must always end with terminating NULL and 0 values. {NULL, NULL, 0, NULL}</p></li>
 </ul>
 <p>Here we tell python if the function has argument, no arguments or arguments and keywords</p>
+<ul class="simple">
+<li><p>It is important we declare all functions as <cite>static</cite> this ensures that namespaces do not get mixed up.</p></li>
+</ul>
+</div>
+<div class="section" id="passing-invalid-arguments-to-our-sample-fib-function">
+<h2>Passing Invalid Arguments to our sample fib function<a class="headerlink" href="#passing-invalid-arguments-to-our-sample-fib-function" title="Permalink to this headline">¶</a></h2>
+<p>What happens when the parameter passed is not an <cite>int</cite> .</p>
+<p>The program raises an exception and we get <cite>UNSIGNED_LONG_MAX</cite> which takes a while to compute even in C.</p>
+<p>We discuss error handling in the next section.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Work in progress.</p>
@@ -78,6 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="extnstructure.html#the-python-h-functions">The Python.h Functions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">A Few Things to remember</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pymethoddef">PyMethodDef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passing-invalid-arguments-to-our-sample-fib-function">Passing Invalid Arguments to our sample fib function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="errorhandling.html">Error Handling while working with Extensions</a></li>
