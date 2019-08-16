@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>A Preview into Creating Extensions &#8212; pycon2019 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ways to Create Extensions" href="waystocreateextn.html" />
+    <link rel="prev" title="Overview of the CPython Interpreter" href="overviewcpython.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="a-preview-into-creating-extensions">
+<h1>A Preview into Creating Extensions<a class="headerlink" href="#a-preview-into-creating-extensions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-do-it">
+<h2>Why do it?<a class="headerlink" href="#why-do-it" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Faster execution of CPU bound operations.</p></li>
+<li><p>Low level resource access.</p></li>
+<li><p>Certain libraries you might want to use from compiled languages.</p></li>
+<li><p>Sounds Cool.( Although you shouldn’t do this at work due to this reason.)</p></li>
+</ul>
+</div>
+<div class="section" id="should-you-do-it">
+<h2>Should you do it?<a class="headerlink" href="#should-you-do-it" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write your own extension modules only if you absolutely must.</p></li>
+</ul>
+</div>
+<div class="section" id="examples-of-projects-that-do-this">
+<h2>Examples of projects that do this<a class="headerlink" href="#examples-of-projects-that-do-this" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>NumPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>SQLAlchemy</p></li>
+</ul>
+<p>and many more.</p>
+</div>
+<div class="section" id="what-you-need-to-have-to-follow-this-talk">
+<h2>What you need to have to follow this talk<a class="headerlink" href="#what-you-need-to-have-to-follow-this-talk" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Works only with CPython</p></li>
+<li><p>Also a C/C++ compiler</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pycon2019</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">This talk is for:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#code-and-content-from-this-talk-can-be-found-at">Code and Content from this talk can be found at:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overviewcpython.html">Overview of the CPython Interpreter</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">A Preview into Creating Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-it">Why do it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#should-you-do-it">Should you do it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-of-projects-that-do-this">Examples of projects that do this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-need-to-have-to-follow-this-talk">What you need to have to follow this talk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="waystocreateextn.html">Ways to Create Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extnstructure.html">The setup file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extnstructure.html#the-python-h-functions">The Python.h Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gotchas.html">A Few Things to remember</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorhandling.html">Error Handling while working with Extensions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="overviewcpython.html" title="previous chapter">Overview of the CPython Interpreter</a></li>
+      <li>Next: <a href="waystocreateextn.html" title="next chapter">Ways to Create Extensions</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, takauchisora.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/creatingfirst.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

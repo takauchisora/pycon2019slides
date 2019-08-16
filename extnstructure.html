@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The setup file &#8212; pycon2019 2019 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="A Few Things to remember" href="gotchas.html" />
+    <link rel="prev" title="Ways to Create Extensions" href="waystocreateextn.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="the-setup-file">
+<h1>The setup file<a class="headerlink" href="#the-setup-file" title="Permalink to this headline">¶</a></h1>
+<p>We use distutils to build extension modules. This method also ensures that we do not need a compiler to install the extension.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">Extension</span>
+
+<span class="n">module1</span> <span class="o">=</span> <span class="n">Extension</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span class="p">,</span>
+                    <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linkaddr.c&#39;</span><span class="p">])</span>
+
+<span class="n">setup</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;MyPackage&#39;</span><span class="p">,</span>
+       <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+       <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is a demo package&#39;</span><span class="p">,</span>
+       <span class="n">ext_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">module1</span><span class="p">])</span>
+
+<span class="c1">#    module1 = Extension(&#39;demo&#39;,</span>
+<span class="c1">#                    define_macros = [(&#39;MAJOR_VERSION&#39;, &#39;1&#39;),</span>
+<span class="c1">#                                     (&#39;MINOR_VERSION&#39;, &#39;0&#39;)],</span>
+<span class="c1">#                    include_dirs = [&#39;/usr/local/include&#39;],</span>
+<span class="c1">#                    libraries = [&#39;tcl83&#39;],</span>
+<span class="c1">#                    library_dirs = [&#39;/usr/local/lib&#39;],</span>
+<span class="c1">#                    sources = [&#39;demo.c&#39;])</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>With this we run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py build
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-python-h-functions">
+<h1>The Python.h Functions<a class="headerlink" href="#the-python-h-functions" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>As discuessed earlier all python objects translate to PyObject* it handles all data parsing between Python and C.</p></li>
+<li><p>PyArg_ParseTuple(args, format, …)</p></li>
+</ul>
+<p>Handles getting the arguments from Python.</p>
+<ul class="simple">
+<li><p>Py_BuildValue(format, …)</p></li>
+</ul>
+<p>Handles turning values into PyObject pointers.</p>
+<ul class="simple">
+<li><p>Py_BuildValue(format, …)</p></li>
+</ul>
+<p>Handles turning values into PyObject pointers.</p>
+<ul class="simple">
+<li><p>More functions and their descriptions are available at <cite>https://docs.python.org/3/c-api/module.html#initializing-modules</cite></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pycon2019</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">This talk is for:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html#code-and-content-from-this-talk-can-be-found-at">Code and Content from this talk can be found at:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overviewcpython.html">Overview of the CPython Interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creatingfirst.html">A Preview into Creating Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="waystocreateextn.html">Ways to Create Extensions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The setup file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#the-python-h-functions">The Python.h Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gotchas.html">A Few Things to remember</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorhandling.html">Error Handling while working with Extensions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="waystocreateextn.html" title="previous chapter">Ways to Create Extensions</a></li>
+      <li>Next: <a href="gotchas.html" title="next chapter">A Few Things to remember</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, takauchisora.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/extnstructure.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
